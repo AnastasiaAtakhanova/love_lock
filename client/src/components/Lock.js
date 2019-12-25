@@ -80,7 +80,7 @@ class Lock extends Component {
                     <p>Введите сообщение</p>
                 </div>
                 <p>
-                <input type="text" class="form-control" id="person"></input>
+                <input type="text" class="form-control" id="message"></input>
                 </p>
                 <div class="btn">
                     <form>
