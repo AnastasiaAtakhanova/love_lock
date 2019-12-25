@@ -26,31 +26,26 @@ class Lock extends Component {
                     <p>Выбери дизайн замочка</p>
                 </div>
                 <div>
-                <table>
-
-               
+                <table>             
                     <tr>
                         <td>
                             <img className="image" src={require('../style/img/замок.png')}/>
-                            <p>Красный</p>
-                            
+                            <p>Красный</p>                         
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок2.png')}/>
-                            <p>Синий</p>
-                           
+                            <p>Синий</p>                          
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок3.png')}/>
-                            <p>Желтый</p>
-                            
+                            <p>Жёлтый</p>                           
                         </td>
                     </tr>
                     <tr>
                         <td>
                         </td>
                         <td>
-                        <select id = "design">
+                        <select id = "design" class="form-control">
                             <option value="red">Красный</option>
                             <option value="blue">Синий</option>
                             <option selected value="yellow">Жёлтый </option>
@@ -81,7 +76,7 @@ class Lock extends Component {
                         <td>
                         </td>
                         <td>
-                        <select id = "size">
+                        <select id = "size" class="form-control">
                             <option value="little">Маленький</option>
                             <option value="middle">Средний</option>
                             <option selected value="big">Большой </option>
@@ -104,7 +99,7 @@ class Lock extends Component {
                 <p>
                 <input type="text" class="form-control" id="message"></input>
                 </p>
-                <button class="button2" onClick={this.clickHandler}>Продолжить</button>
+                <button class="button2" onClick={this.clickHandler}><a class="navbar-brand" href="/Success">Повесить на мост</a></button>
             </div>
         );
     }    
