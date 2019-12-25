@@ -31,8 +31,8 @@ function GuestMenu() {
       <div class="btn-group-toggle" data-toggle="buttons">
         <a class="navbar-brand" href="/Auth">Авторизация |</a>
         <a class="navbar-brand" href="/Register">Регистрация |</a>
-        <a class="navbar-brand" href="/LockList">Замки |</a>
-        <a class="navbar-brand" href="/Start">Домашняя страница</a>
+        <a class="navbar-brand" href="/Start">Домашняя страница |</a>
+        <a class="navbar-brand" href="/Lock">Повесить замочек на мост!</a>
       </div>
     </nav>
   )
@@ -42,13 +42,13 @@ class Navigation extends  Component  {
     constructor(props) {
       super(props);
         this.state = {
-          isLoggedIn: true
+          isLoggedIn: this.props.isLoggedIn
         };
     }
 
   render() {
     return (
-        <Menu isLoggedIn = {true}/>
+        <Menu isLoggedIn = {this.state.isLoggedIn}/>
     );
   }
 }

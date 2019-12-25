@@ -34,7 +34,7 @@ class Lock extends Component {
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок2.png')}/>
-                            <p>Синий</p>                          
+                            <p>Синий</p>                         
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок3.png')}/>

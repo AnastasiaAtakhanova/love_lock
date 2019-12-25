@@ -4,10 +4,6 @@ import '../style/css/bootstrap.min.css';
 
 class Start extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="rect">
@@ -47,7 +43,6 @@ class Start extends Component {
                         </tbody>
                     </table>
                 </div>
-                <button className="button1">Повесить замочек!</button>
             </div>
         );
     }    

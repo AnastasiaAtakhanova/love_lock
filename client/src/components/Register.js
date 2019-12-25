@@ -2,9 +2,17 @@ import React, {Component} from 'react';
 import { Route, Link} from 'react-router-dom';
 import '../style/auth.css';
 import {sendInputValue} from "../api/InputValues";
+import App from '../App';
 
 
 class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false
+            };
+    }
+
     clickHandler() {
         const name = document.getElementById("name").value;
         const surname = document.getElementById("surname").value;
