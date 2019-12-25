@@ -8,10 +8,10 @@ class Register extends Component {
     clickHandler() {
         const name = document.getElementById("name").value;
         const surname = document.getElementById("surname").value;
-        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        console.log(name, surname, email, password)
-        sendInputValue(name, surname, email, password);
+        console.log(name, surname, username, password);
+        sendInputValue(name, surname, username, password);
     }
     render() {
         return (
@@ -29,7 +29,7 @@ class Register extends Component {
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Логин</label>
-                                        <input type="text" id="email" class="form-control"></input>
+                                        <input type="text" id="username" class="form-control"></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Пароль</label>

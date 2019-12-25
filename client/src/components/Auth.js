@@ -1,17 +1,31 @@
 import React, {Component} from 'react';
 import '../style/auth.css';
-import {sendInputValue} from "../api/InputValues";
-
+import {isRegistered} from "../api/IsRegistered";
 
 class Auth extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          isLoggedIn: true,
+          data: []
+        };
+    }
     
     clickHandler() {
-        const name = document.getElementById("name").value;
-        const surname = document.getElementById("surname").value;
-        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        sendInputValue(name, surname, email, password);
-    } 
+        isRegistered(String(username));
+        
+    }
+
+    isRegistered = () => {
+        isRegistered(String(document.getElementById("username").value)).then((data) => {  
+            if(data.length != 0)
+            this.setState({'isLoggedIn': true});
+        });    
+    };
+
     render() {
         return (
             <div class="container">
@@ -20,7 +34,7 @@ class Auth extends Component {
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Логин</label>
-                            <input type="text" class="form-control" id="email"></input>
+                            <input type="text" class="form-control" id="username"></input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Пароль</label>
@@ -34,8 +48,8 @@ class Auth extends Component {
                             <span class="text">Запомнить</span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default">Войти</button>
-                        </div>                            
+                            <button type="submit" class="btn btn-default" onClick={this.clickHandler}>Войти</button>
+                        </div>
                     </div> 
                 </div>  
             </div> 
