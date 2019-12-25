@@ -18,21 +18,21 @@ class Lock extends Component {
                     <tr>
                         <td>
                             <label>
-                                <img src="../style/img/замок.png" alt="" width="60px" height="60px"></img>
+                            <img className="image" src={require('../style/img/замок.png')}/>
                                 <p>Красный</p>
-                                <input type="radio" name="status2" id = "color"></input>
+                                <input type="radio" name="status2" id = "design"></input>
                             </label>
                         </td>
                         <td>
                             <label>
-                                <img src="../style/img/замок2.png" alt="" width="70px" height="60px"></img>
+                            <img className="image" src={require('../style/img/замок2.png')}/>
                                 <p>Синий</p>
-                                <input type="radio" name="status2" id = "color"></input>
+                                <input type="radio" name="status2" id = "design"></input>
                             </label>
                         </td>
                         <td>
                             <label>
-                                <img src="./img/замок3.png" alt="" width="70px" height="60px"></img>
+                            <img className="image" src={require('../style/img/замок3.png')}/>
                                 <p>Желтый</p>
                                 <input type="radio" name="status2" id = "color"></input>
                             </label>
@@ -48,21 +48,18 @@ class Lock extends Component {
                         <tr>
                             <td>
                                 <label>
-                                    <img src="./img/замок.png" alt="" width="40px"></img>
                                     <p>Маленький</p>
                                     <input type="radio" name="status" id = "size"></input>
                                 </label>
                             </td>
                             <td>
                                 <label>
-                                    <img src="./img/замок.png" alt="" width="60px"></img>
                                     <p>Средний</p>
                                     <input type="radio" name="status" id = "size"></input>
                                 </label>
                             </td>
                             <td>
                                 <label>
-                                    <img src="./img/замок.png" alt="" width="80px"></img>
                                     <p>Большой</p>
                                     <input type="radio" name="status"></input>
                                 </label>
