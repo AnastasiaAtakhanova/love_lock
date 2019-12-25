@@ -27,21 +27,36 @@ class Lock extends Component {
                 </div>
                 <div>
                 <table>
+
+               
                     <tr>
                         <td>
                             <img className="image" src={require('../style/img/замок.png')}/>
                             <p>Красный</p>
-                            <input type="radio" value="red" name = "design" id="design"></input>
+                            
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок2.png')}/>
                             <p>Синий</p>
-                            <input type="radio" value="blue" name = "design" id="design"></input>
+                           
                         </td>
                         <td>
                             <img className="image" src={require('../style/img/замок3.png')}/>
                             <p>Желтый</p>
-                            <input type="radio" value="yellow" name = "design" id="design"></input>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <select id = "design">
+                            <option value="red">Красный</option>
+                            <option value="blue">Синий</option>
+                            <option selected value="yellow">Жёлтый </option>
+                        </select>
+                        </td>
+                        <td> 
                         </td>
                     </tr>
                 </table>
@@ -51,26 +66,30 @@ class Lock extends Component {
                 </div>
                 <div>
                     <table>
-                        <tr>
-                            <td>
-                                <label>
-                                    <p>Маленький</p>
-                                    <input type="radio" value="little" name = "size" id="size"></input>
-                                </label>
-                            </td>
-                            <td>
-                                <label>
-                                    <p>Средний</p>
-                                    <input type="radio" value= "middle" name = "size" id="size"></input>
-                                </label>
-                            </td>
-                            <td>
-                                <label>
-                                    <p>Большой</p>
-                                    <input type="radio" value="big" name = "size" id="size"></input>
-                                </label>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                           <p> Маленький </p>
+                        </td>
+                        <td>
+                            <p>Средний</p>                     
+                        </td>
+                        <td>
+                            <p>Большой</p>               
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <select id = "size">
+                            <option value="little">Маленький</option>
+                            <option value="middle">Средний</option>
+                            <option selected value="big">Большой </option>
+                        </select>
+                        </td>
+                        <td> 
+                        </td>
+                    </tr>
                     </table>
                 </div>
                 <div class="l-Title">
