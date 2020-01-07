@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import request from 'request';
 import '../style/auth.css';
 import {isRegistered} from "../api/IsRegistered";
 
@@ -16,8 +15,8 @@ class Auth extends Component {
     clickHandler() {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        console.log(isRegistered(String(username)));
-
+        isRegistered(String(username))
+ 
     }
 
     isRegistered = () => {
