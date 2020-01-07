@@ -15,15 +15,13 @@ class Auth extends Component {
     clickHandler() {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        isRegistered(String(username))
- 
+        isRegistered(String(username));
     }
 
     isRegistered = () => {
         isRegistered(String(document.getElementById("username").value)).then((data) => {  
             if(data.length != 0)
             this.setState({'isLoggedIn': true});
-		
         });    
     };
 

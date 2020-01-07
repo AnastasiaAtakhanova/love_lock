@@ -55,12 +55,12 @@ class Lock extends Component {
 
         else{
             cardContent = (
+
             <div className="answer_container">
                 <div class="l-Title">
                     <p>Выбери дизайн замочка</p>
                 </div>
                 <div>
-                    
                 <table>             
                     <tr>
                         <td>
@@ -129,6 +129,7 @@ class Lock extends Component {
                     <div class="el_center">
                 <input type="text" class="form-control" id="person"></input>
                 </div>
+
                 </p>
                 <div class="l-Title">
                     <p>Оставь сообщение</p>
@@ -153,5 +154,6 @@ class Lock extends Component {
          </div>
       );  
         }
+
 }
 export default Lock;

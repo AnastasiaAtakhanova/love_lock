@@ -7,7 +7,6 @@ import Start from './components/Start';
 import Lock from './components/Lock';
 import LockList from './components/LockList';
 import Success from './components/Success';
-import LockContent from './components/LockContent';
 import './style/css/bootstrap.min.css';
 
 
@@ -57,10 +56,6 @@ class App extends Component {
                     path='/Success'
                     component={Success}
                     exact
-                  />
-                  <Route
-                  path='/LockContent'
-                  component={LockContent}
                   />
                 </Switch>
             </div>
