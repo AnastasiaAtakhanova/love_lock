@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const sendLockData= (person, design, size, message) => {
+export const sendLockData=(username, person, design, size, message) => {
     const payload = {
-        // username: username,
+        username: username,
         person: person,
         design: design,
         size: size,

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../style/auth.css';
 import {isRegistered} from "../api/IsRegistered";
 
@@ -7,7 +7,7 @@ class Auth extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          isLoggedIn: true,
+          isLoggedIn: false,
           data: []
         };
     }
@@ -16,7 +16,6 @@ class Auth extends Component {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         isRegistered(String(username));
-        
     }
 
     isRegistered = () => {
