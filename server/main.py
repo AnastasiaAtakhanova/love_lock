@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
-import bcrypt
 
 DEBUG = True
 
@@ -64,6 +63,8 @@ def login():
     return response_object
 
 
+
+
 @app.route('/register', methods=['POST'])
 def register():
     users = db['authorisation']
@@ -86,6 +87,13 @@ def register():
         return response_object
     response_object['message'] = str('false')
     return response_object
+
+@app.route('/api/delete_lock_id', methods=['POST'])
+def delete_lock():
+    if request.method == 'POST':
+    id_lock = request.get_json().get('id_lock')
+    lock_collection.delete_one({'_id': id_lock})
+    return jsonify({})
 
 if __name__ == '__main__':
     app.run()
