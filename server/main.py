@@ -91,9 +91,9 @@ def register():
 @app.route('/api/delete_lock_id', methods=['POST'])
 def delete_lock():
     if request.method == 'POST':
-    id_lock = request.get_json().get('id_lock')
-    lock_collection.delete_one({'_id': id_lock})
-    return jsonify({})
+        id_lock = request.get_json().get('id_lock')
+        lock_collection.delete_one({'_id': id_lock})
+        return jsonify({})
 
 if __name__ == '__main__':
     app.run()
