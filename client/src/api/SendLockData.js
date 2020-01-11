@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const sendLockData=(username, person, design, size, message) => {
+export const sendLockData= (username, person, design, size, message) => {
     const payload = {
         username: username,
         person: person,
@@ -9,13 +9,12 @@ export const sendLockData=(username, person, design, size, message) => {
         message: message
     };
     return axios
-        .post('http://server-lock.herokuapp.com/api/send_lock_data', payload)
+        .post('https://server-lock.herokuapp.com/api/send_lock_data', payload)
         .then(res => {
-            console.log('Данные успешно были отправлены');
+            window.location.replace("/Success")
             return res.data;
         })
         .catch((error) => {
-            console.log('Данные не были успешно отправлены');
-            console.log(error);
+            alert('Ошибка отправки данных.')
         });
 };
