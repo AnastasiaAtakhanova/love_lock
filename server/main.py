@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
+from gunicorn import app
 
 DEBUG = True
 
@@ -10,7 +11,7 @@ app.config.from_object(__name__)
 
 CORS(app)
 
-cluster = MongoClient('mongodb+srv://atakhanova:Kate1245@cluster0-qp8rs.mongodb.net/test?retryWrites=true&w=majority')
+cluster = MongoClient('mongodb+srv://MariaLeo:provcolk13@cluster0-vfkmt.mongodb.net/test?retryWrites=true&w=majority')
 db = cluster['love_lock']
 values_collection = db['authorisation']
 lock_collection = db['lock']
@@ -32,7 +33,7 @@ def get_lock_data():
         return jsonify(response_object)
 
 @app.route('/api/send_lock_data', methods=['POST'])
-def add_lock_data_into_db():
+def send_lock_data():
     if request.method == 'POST':
         request_data = request.get_json()
         username = request_data.get('username')
@@ -40,8 +41,9 @@ def add_lock_data_into_db():
         design = request_data.get('design')
         size = request_data.get('size')
         message = request_data.get('message')
-        if (lock_collection.find().distinct('_id')):
-            ID = max(lock_collection.find().distinct('_id'))+1
+        ID = lock_collection.distinct( "_id" )
+        if (ID):
+            ID = max(ID) + 1
         else:
             ID = 0
         lock_collection.insert_one({"_id": ID, "username": username, "person" : person, "design": design, "size": size, "message": message})
@@ -58,16 +60,14 @@ def login():
     if login_user:
         if str(password) == login_user['password']:
             response_object['message'] = str('true')
-            return response_object
+            return jsonify(response_object)
     response_object['message'] = str('false')
-    return response_object
-
-
-
+    return jsonify(response_object)
 
 @app.route('/register', methods=['POST'])
 def register():
     users = db['authorisation']
+    
     request_data = request.get_json()
     name = request_data.get('name')
     surname = request_data.get('surname')
@@ -75,18 +75,17 @@ def register():
     password = request_data.get('password')
     response_object = {}
     existing_user = users.find_one({'username' : str(username)})
-
-    if (users.find().distinct('_id')):
-        ID = max(users.find().distinct('_id'))+1
+    ID = users.distinct( "_id" )
+    if (ID):
+         ID = max(ID) + 1
     else:
-        ID = 0
-
-    if existing_user is None:
-        users.insert_one({"_id": ID, 'name' : name,'surname' : surname,'username' : username, 'password' : password})
-        response_object['message'] = str('true')
-        return response_object
-    response_object['message'] = str('false')
-    return response_object
+         ID = 0
+    if existing_user:
+         response_object['message'] = str('false')
+         return jsonify(response_object)
+    users.insert_one({'_id': ID, 'name' : name,'surname' : surname,'username' : username, 'password' : password})
+    response_object['message'] = str('true')
+    return jsonify(response_object)
 
 @app.route('/api/delete_lock_id', methods=['POST'])
 def delete_lock():
