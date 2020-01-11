@@ -3,9 +3,9 @@ import '../style/index.css';
 import '../style/css/bootstrap.min.css';
 
 class Start extends Component {
-
     render() {
         return (
+            
             <div className="rect">
                 <div className="l-Title">
                     <p>All you need is love!</p>
@@ -50,5 +50,3 @@ class Start extends Component {
 }
 
 export default Start;
-
-
