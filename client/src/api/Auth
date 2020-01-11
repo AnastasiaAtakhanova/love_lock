@@ -6,8 +6,9 @@ export const sendUsernamePassword = (username, password) => {
         password: password
     };
     return axios
-        .post('http://localhost:5000/login', payload)
+        .post('https://server-lock.herokuapp.com/login', payload)
         .then(res => {
+            console.log("Мы туточки")
             let userData = res.data['message'];
             if(username != '' && password != ''){
             if (userData === 'true'){
